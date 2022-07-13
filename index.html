@@ -15,10 +15,11 @@
     </main>
 
     <script>
-    (async function() {
-        const { text } = await( await fetch(`/api/HttpTrigger1`)).json();
-        document.querySelector('#name').textContent = text;
-    }())
+        
+   fetch('/api/HttpTrigger1')
+    .then(response => document.querySelector('#name').textContent = response.text())
+    .then(data => document.querySelector('#name').textContent = data);
+        
     </script>  
 </body>
 
